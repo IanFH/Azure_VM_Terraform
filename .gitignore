@@ -1,0 +1,6 @@
+main.tf
+terraform.tfvars
+variables.tf
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
