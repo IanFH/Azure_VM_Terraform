@@ -1,0 +1,26 @@
+# Log
+- Made a key vault 
+    - RG: Blog_RG
+    - Name: vm-test1-kv
+    - Region: Southeast Asia
+- Changed `terraform.tfvars` 
+    - VNET name: vnet-terraform-modulesdev-sea
+    - Location: Southeast Asia
+- Added Keyvault administration IAM permission to personal account
+    - Unsure why even though I am owner, but now I can add secrets
+- Added Secrets into vm-test1-kv
+    - name: virtual-machine-user
+    - secret value: codesalmon
+    - name: virtual-machine-password
+    - secret value: CodeSalmon-
+- Changed `network/variables.tf`
+    - Commented out validation for region
+    - Changed default region to "Southeast Asia"
+- Changed `terraform.tfvars`
+    - Changed VNET rg to "rg-vm-test1"
+- Added storage account, storage container into `storage.tf` file
+    - This is to store .tfstate instead of provisioning through portal
+    - Note that only keyvault have been provisioned manually through portal and it exists at a different resource group
+- Encountered an error as storage account and container need to exist before `terraform init` is called
+    - Will create through a separate IAC code
+    - Created `terraform-presetup` to setup storage account
